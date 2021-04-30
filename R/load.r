@@ -146,9 +146,7 @@ load_all <- function(path = ".", reset = TRUE, compile = NA,
     # Remove package from known namespaces. We don't unload it to allow
     # safe usage of dangling references.
     if (is_loaded(package)) {
-      unload_pkg_env(package)
-      unregister_methods(package)
-      unregister_namespace(package)
+      unregister(package)
     }
   }
 

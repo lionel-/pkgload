@@ -1,5 +1,12 @@
 # pkgload (development version)
 
+* `unregister()` is now exported. This is a gentler version of
+  `unload()` which removes the package from the search path,
+  unregisters methods, and unregisters the namespace. However it
+  doesn't try to unload the namespace or its DLL so that dangling
+  references keep working.
+
+
 # pkgload 1.2.1
 
 * `unload()` no longer unregisters methods for generics of the package being unloaded. This way dangling references to generics defined in the stale namespace still work as expected (r-lib/vctrs#1341).
